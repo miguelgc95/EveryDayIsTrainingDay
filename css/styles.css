@@ -15,7 +15,7 @@ body{
     max-width: 700px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border: 1px solid black;
     position: relative;
@@ -23,27 +23,17 @@ body{
 
 nav{
     height: 50px;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-}
-
-#upper-nav{
-    position: fixed;
-    top: 0;
-}
-
-#down-nav{
-    position: fixed;
-    bottom: 0;
 }
 
 main{
     overflow-y: scroll;
-    /* min-height: calc(100%-100px);
-    max-height: calc(100%-100px); */
-    height: calc(100%-100px) !important;
+    min-height: calc(100%-100px);
+    height: 80vh;
 }
 
 .hide-me{
