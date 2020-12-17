@@ -36,6 +36,28 @@ main{
     height: 80vh;
 }
 
+/* #img-wrapper{
+    max-width: 50px;
+    max-height: 50px;
+} */
+
+#profile-photo-and-posts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+img{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#galery{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
 .hide-me{
     display: none;
 }
