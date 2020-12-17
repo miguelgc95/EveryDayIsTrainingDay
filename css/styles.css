@@ -36,6 +36,13 @@ main{
     height: 80vh;
 }
 
+#self-profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
 /* #img-wrapper{
     max-width: 50px;
     max-height: 50px;
@@ -59,5 +66,5 @@ img{
 }
 
 .hide-me{
-    display: none;
+    display: none !important;
 }
