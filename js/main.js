@@ -1,5 +1,6 @@
 window.onload= trigger();
-// window.onscroll=stickProfileOption();
+document.getElementById("sections-wrapper").addEventListener("scroll",stickProfileOption)
+// .onscroll=stickProfileOption();
 
 function trigger(){
     var parent = document.querySelectorAll(".flow-btn");
@@ -25,14 +26,21 @@ function flow(e){
     }
 }
 
-// function stickProfileOption(){
-//     console.log("illo");
-//     var stickMe=document.getElementById("to-stick");
-//     var stickProperty=stickMe.offsetTop;
-//     if(window.pageYOffset>=stickProperty){
-//         stickMe.classList.add("stickProperty");
-//     }
-//     else{
-//         stickMe.classList.remove("stickProperty");
-//     }
-// }
+function stickProfileOption(){
+    var selfProfileAux=document.getElementById("self-profile")
+    if(!selfProfileAux.classList.contains("hide-me")){
+        console.log("illo");
+        var stickMe=document.getElementById("to-stick");
+        var sticky=stickMe.offsetTop;
+        console.log(sticky);
+        console.log(document.getElementById("sections-wrapper").scrollTop);
+        if(document.getElementById("sections-wrapper").scrollTop>=95){
+            stickMe.classList.add("sticky");
+            console.log("entro");
+        }
+        else{
+            stickMe.classList.remove("sticky");
+        }
+    }
+
+}

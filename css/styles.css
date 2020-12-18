@@ -43,12 +43,7 @@ main{
     align-items: center;
 }
 
-/* #img-wrapper{
-    max-width: 50px;
-    max-height: 50px;
-} */
-
-#profile-photo-and-posts{
+#profile-first-row{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -58,6 +53,17 @@ main{
 img{
     max-width: 50px;
     max-height: 50px;
+}
+
+#to-stick{
+    overflow: hidden;
+}
+
+.sticky{
+    position: sticky;
+    top: 0px;
+    margin-left: 100px;
+    width: 100%;
 }
 
 #galery{
