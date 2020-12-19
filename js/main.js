@@ -10,6 +10,7 @@ function trigger(){
 function flow(e){
     e.preventDefault();
     if(e.target.classList.contains("validate")){
+        console.log("llamo a validation");
         validationFlow(e.target);
     }
     var parent = document.querySelectorAll("section");
@@ -51,14 +52,10 @@ function flow(e){
 function stickProfileOption(){
     var selfProfileAux=document.getElementById("self-profile")
     if(!selfProfileAux.classList.contains("hide-me")){
-        console.log("illo");
         var stickMe=document.getElementById("to-stick");
         var sticky=stickMe.offsetTop;
-        console.log(sticky);
-        console.log(document.getElementById("sections-wrapper").scrollTop);
         if(document.getElementById("sections-wrapper").scrollTop>=95){
             stickMe.classList.add("sticky");
-            console.log("entro");
         }
         else{
             stickMe.classList.remove("sticky");

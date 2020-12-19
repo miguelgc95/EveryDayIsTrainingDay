@@ -12,8 +12,9 @@ function getLocalStorage(){
     }
 }
 
-function User(userName,password){
+function User(userName, email,password){
     this.userName=userName;
+    this.email=email;
     this.password=password
     this.profilePhoto;
     this.trainingPosts=[];
