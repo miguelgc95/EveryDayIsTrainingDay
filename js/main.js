@@ -1,6 +1,4 @@
 window.onload= trigger();
-document.getElementById("sections-wrapper").addEventListener("scroll",stickProfileOption)
-// .onscroll=stickProfileOption();
 
 function trigger(){
     var parent = document.querySelectorAll(".flow-btn");
@@ -10,8 +8,11 @@ function trigger(){
 }
 
 function flow(e){
+    e.preventDefault();
+    if(e.target.classList.contains("validate")){
+        validationFlow(e.target);
+    }
     var parent = document.querySelectorAll("section");
-    console.log(parent[0].id);
     for(i=0;i<parent.length;i++){
         if(parent[i].id===e.target.name){
             if(parent[i].classList.contains("hide-me")){
@@ -23,6 +24,27 @@ function flow(e){
                 parent[i].classList.add("hide-me")
             }
         }
+    }
+    switch(e.target.name){
+        case "trainings":
+            loadTrainingsInfo();
+            break;
+        case "pictures":
+            loadPicturesInfo();
+            break;
+        case "search":
+            loadSearchInfo();
+            break;
+        case "self-profile":
+            document.getElementById("sections-wrapper").addEventListener("scroll",stickProfileOption);
+            loadSelfProfileInfo();
+            break
+        case "profile-settings":
+            loadProfileSettingsInfo();
+            break;
+        case "notifications":
+            loadNotificationsInfo();
+            break;
     }
 }
 

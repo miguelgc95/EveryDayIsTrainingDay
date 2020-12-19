@@ -9,6 +9,9 @@
     <title>EveryDayIsTrainingDay</title>
 
     <script src="js/main.js" defer></script>
+    <script src="js/objects.js" defer></script>
+    <script src="js/validations.js" defer></script>
+    <script src="/js/loadInfo.js"></script>
 </head>
 <body>
     <div id="general-wrapper">
@@ -18,7 +21,47 @@
             <button class="flow-btn" name="notifications">notifications</button>
         </nav>
         <main id="sections-wrapper">
-            <section id="trainings">trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>woooooo<br>trainings<br>trainings<br>trainings<br></section>
+            <section id="welcome">
+                <button class="flow-btn" name="create-account">Create an account</button>
+                <button class="flow-btn" name="log-in">Log in</button>
+            </section>
+            <section id="log-in" class="hide-me">
+                <form action="">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" autofocus><br>
+                    <label for="password-log-in">Password:</label>
+                    <input type="text" id="password-log-in" ><br>
+                    <button class="flow-btn validate" name="trainings">Log In</button>
+                </form>
+            </section>
+            <section id="create-account" class="hide-me">
+                <form action="">
+                    <label for="user-name">User name:</label>
+                    <input type="text" id="user-name" autofocus><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password"><br>
+                    <label for="repeat-password">Repeat password:</label>
+                    <input type="password" id="repeat-password"><br>
+                    <button class="flow-btn validate" name="profile-settings">Create account</button>
+                    don't forget the prevent default!
+                </form>
+            </section>
+            <section id="profile-settings" class="hide-me">
+                <form action="">
+                    <label for="select-img"></label>
+                    <input type="file" id="select-img">
+                    <img src="/assets/contraste.JPG" alt="">
+                    <label for="user-name2">User name:</label>
+                    <input type="text" id="user-name2" autofocus><br>
+                    <label for="password2">Password:</label>
+                    <input type="password" id="password2"><br>
+                    <label for="descript">Description: </label>
+                    <textarea name="" id="descript" cols="30" rows="10"></textarea>
+                    <button class="flow-btn" name="new-post">new post</button>
+                    <button class="flow-btn validate" name="trainings">Save account changes</button>
+                </form>
+            </section>
+            <section id="trainings" class="hide-me">trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>trainings<br>woooooo<br>trainings<br>trainings<br>trainings<br></section>
             <section id="pictures" class="hide-me">pictures</section>
             <section id="search" class="hide-me">
                 <form action="">
@@ -38,7 +81,7 @@
                     </div>
                 </div>
                 <div id="description">hola miradme soy pakito hago deporte</div>
-                <button>edit profile</button>
+                <button class="flow-btn" name="profile-settings">Edit profile</button>
                 <div id="to-stick">
                     <button id="self-training">self-training</button>
                     <button id="self-photos">self-photos</button>
