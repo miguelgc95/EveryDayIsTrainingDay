@@ -1,5 +1,7 @@
 window.onload= trigger();
 
+const circleType = new CircleType(document.getElementById('circle'));
+
 function trigger(){
     var parent = document.querySelectorAll(".flow-btn");
     for(i=0;i<parent.length;i++){

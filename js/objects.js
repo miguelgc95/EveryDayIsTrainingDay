@@ -12,17 +12,21 @@ function getLocalStorage(){
     }
 }
 
-function User(userName, email,password){
+function User(userName, email, password){
     this.userName=userName;
     this.email=email;
-    this.password=password
+    this.password=password;
     this.profilePhoto;
     this.trainingPosts=[];
     this.picturesPosts=[];
     this.followers=[];
     this.description="";
+    this.setCurrent = function(){
+        console.log("entroo");
+        localStorage.setItem("currentUser",JSON.stringify(this));
+    }
     this.interaction=function(){
-
+        console.log("tus muerto");
     }
 }
 

@@ -48,20 +48,24 @@ function validateCreateAccount(){
 
 function createUser(){
     var name=document.getElementById("user-name").value;
-    var p1=new User(name,document.getElementById("repeat-password").value);
+    var password=document.getElementById("password").value;
+    var email=document.getElementById("email-create").value;
+    var p1=new User(name, email, password);
     var allUsers=JSON.parse(localStorage.getItem("allUsers"))
     localStorage.setItem('allUsers',JSON.stringify([]))
     allUsers.push(p1);
-    localStorage.setItem("currentUser",JSON.stringify(p1));
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    p1.setCurrent();
 }
 
 function validateLogIn(){
     var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     var validUser;
-    allUsers.forEach(element => {
+    var index;
+    allUsers.forEach((element,i) => {
         if(element.email===document.querySelector("#email").value){
-            validUser=element.email
+            index=i;
+            validUser=element.email;
             if (element.password!=document.querySelector("#password-log-in").value){
                 alert("invalid password")
             }
@@ -69,6 +73,10 @@ function validateLogIn(){
     });
     if (validUser===undefined){
         alert("invalid email")
+    }
+    else{
+        console.log("entro", allUsers[index]);
+        allUsers[index].setCurrent();
     }
 }
 
