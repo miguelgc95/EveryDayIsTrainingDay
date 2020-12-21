@@ -14,13 +14,14 @@ body{
 #general-wrapper{
     margin: 0 auto;
     height: 100%;
-    max-width: 700px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     border: 1px solid black;
     position: relative;
+    width: 100vw;
 }
 
 nav{
