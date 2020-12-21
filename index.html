@@ -11,12 +11,13 @@
     <script src="js/main.js" defer></script>
     <script src="js/objects.js" defer></script>
     <script src="js/validations.js" defer></script>
-    <script src="/js/loadInfo.js"></script>
+    <script src="js/loadInfo.js" defer></script>
     <script src="https://kit.fontawesome.com/fe79458665.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-    <div id="general-wrapper"><nav id="upper-nav">
+    <div id="general-wrapper">
+        <nav id="upper-nav">
             <div>Every Day Is Training Day</div>
             <button class="flow-btn" name="new-post"><i class="far fa-plus-square aux"></i></button>
             <button class="flow-btn" name="notifications"><i class="far fa-heart aux"></i></button>
@@ -53,16 +54,16 @@
             </section>
             <section id="profile-settings" class="hide-me">
                 <form action="">
-                    <label for="select-img"></label>
-                    <input type="file" id="select-img">
-                    <img src="/assets/contraste.JPG" alt="">
+                    <label for="files-profile-img">Profile image:</label>
+                    <input type="file" id="files-profile-img" name="files[]">
+                    <output id="list-profile-img"></output>
                     <label for="user-name2">User name:</label>
                     <input type="text" id="user-name2" autofocus><br>
                     <label for="password2">Password:</label>
                     <input type="password" id="password2"><br>
                     <label for="descript">Description: </label>
                     <textarea name="" id="descript" cols="30" rows="10"></textarea>
-                    <button class="flow-btn" name="new-post">new post</button>
+                    <!-- <button class="flow-btn" name="new-post">new post</button> -->
                     <button class="flow-btn validate" name="trainings">Save account changes</button>
                 </form>
             </section>
@@ -77,7 +78,7 @@
             </section>
             <section id="self-profile" class="hide-me">
                 <div id="profile-first-row">
-                    <div id="img-wrapper"><img src="assets/media-cara.jpg" alt=""></div>
+                    <div id="img-wrapper"></div>
                     <div>
                         <span>trainings</span>
                         <span>pictures</span>

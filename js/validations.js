@@ -79,8 +79,16 @@ function validateLogIn(){
 }
 
 function validateProfileSettings(){
+    var imgs=document.getElementById("list-profile-img").children;
+    console.log(imgs);
+    var myimg=imgs[0].getElementsByTagName("img")[0];
+    console.log(myimg);
+        var photo={
+            src: myimg.src,
+            title: myimg.title,
+        }
     var allUsers=JSON.parse(localStorage.getItem("allUsers"));
-    allUsers[localStorage.getItem("currentUser")].description=document.getElementById("descript").value;
+    allUsers[localStorage.getItem("currentUser")].profilePhoto=photo;
     localStorage.setItem("allUsers", JSON.stringify(allUsers))
 }
 

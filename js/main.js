@@ -80,7 +80,6 @@ function stickProfileOption(){
             stickMe.classList.remove("sticky");
         }
     }
-
 }
 
 function handleFileSelect(evt) {

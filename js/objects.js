@@ -3,7 +3,7 @@ class User{
         this.userName=userName;
         this.email=email;
         this.password=password;
-        this.profilePhoto;
+        this.profilePhoto={};
         this.trainingPosts=[];
         this.picturesPosts=[];
         this.followers=[];
