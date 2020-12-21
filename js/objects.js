@@ -32,13 +32,16 @@ function setCurrent (email){
     localStorage.setItem("currentUser",ind);
 }
 
-function Training(){
-    this.typology="";
-    this.trainDescription="";
-    this.trainPhoto;
-    this.likes=[];
-    this.comments=[];
-}
+// class Training{
+//     constructor()
+// }
+// function Training(){
+//     this.typology="";
+//     this.trainDescription="";
+//     this.trainPhoto;
+//     this.likes=[];
+//     this.comments=[];
+// }
 
 function Photos(){
     this.photo;

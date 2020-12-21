@@ -80,7 +80,20 @@ img{
     grid-template-columns: auto auto auto;
 }
 
-#profile-settings form{
+.thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+}
+
+/* #profile-settings form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+section form{
     display: flex;
     flex-direction: column;
     justify-content: space-between;

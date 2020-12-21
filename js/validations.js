@@ -9,6 +9,10 @@ function validationFlow(tar){
         case "profile-settings":
             validateProfileSettings();
             break;
+        case "new-training":
+            console.log("hola?");
+            validateNewTraining();
+            break;
     }
 }
 
@@ -65,7 +69,7 @@ function validateLogIn(){
             if (element.password!=document.querySelector("#password-log-in").value){
                 alert("invalid password")
             }
-        } 
+        }
     });
     if (validUser===undefined){
         alert("invalid email")
@@ -79,4 +83,15 @@ function validateProfileSettings(){
     var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     allUsers[localStorage.getItem("currentUser")].description=document.getElementById("descript").value;
     localStorage.setItem("allUsers", JSON.stringify(allUsers))
+}
+
+function validateNewTraining(){
+    var training={
+        typology: document.getElementById("typology").value,
+        trainDescription: document.getElementById("training-description").value,
+        dificulty: document.getElementById("dificulty").value,
+        likes: [],
+        comments: []
+    }
+    console.log("we");
 }

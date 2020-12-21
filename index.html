@@ -120,14 +120,38 @@
             </section>
             <section id="new-post" class="hide-me">
                 new post
-                <button>
+                <button class="flow-btn" name="new-training">
                     Register new training
                 </button>
-                <button>
-                    Share a new <picture></picture>
+                <button class="flow-btn" name="new-pic">
+                    Share a new picture
                 </button>
-
             </section>
+            <section id="new-training" class="hide-me">
+                <form id="new-training-form" action="">
+                    <label for="typology">What kind of training?:</label>
+                    <select name="typology" id="typology">
+                        <option value="Calisthenics">Calisthenics</option>
+                        <option value="Gym">Gym</option>
+                        <option value="Crossfit">Crossfit</option>
+                        <option value="Running">Running</option>
+                        <option value="=Other">Other</option>
+                    </select>
+                    <label for="training-description">Training description:</label>
+                    <textarea name="" id="training-description" cols="30" rows="10"></textarea>
+                    <label for="dificulty">How hard did you find your training? (between 0 and 10):</label>
+                    <input type="range" id="dificulty" name="dificulty" min="0" max="10">
+                    <!-- <div id="div-associate-pic">
+                        <input type="checkbox" id="associate-pic" value="true">
+                        <label for="associate-pic">Add a picture with the training</label>
+                    </div> -->
+                    <label for="train-pc">Add some pics to your train!</label>
+                    <input type="file" id="files" name="files[]" multiple />
+                    <output id="list"></output>
+                    <button id="share-training" class="flow-btn validate" name="trainings">Share Training</button>
+                </form>
+            </section>
+            <section id="new-pic" class="hide-me"></section>
             <section id="notifications" class="hide-me">notifications</section>
         </main>
         <nav id="down-nav">
