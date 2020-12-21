@@ -79,6 +79,7 @@ function stickProfileOption(){
 
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
+    console.log(files);
 
     // Loop through the FileList and render image files as thumbnails.
     for (var i = 0, f; f = files[i]; i++) {
@@ -108,18 +109,4 @@ function handleFileSelect(evt) {
 
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
-
-    // function handleFileSelect(evt) {
-    //     var files = evt.target.files; // FileList object
-    //     // files is a FileList of File objects. List some properties.
-    //     var output = [];
-    //     for (var i = 0, f; f = files[i]; i++) {
-    //         console.log("entroooooo");
-    //         output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-    //             f.size, ' bytes, last modified: ',
-    //             f.lastModifiedDate.toLocaleDateString(), '</li>');
-    //     }
-    //     document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-    // }
-    // document.getElementById('files').addEventListener('change', handleFileSelect, false);
-
+window.onclick=function(e){console.log(e.target);}

@@ -10,7 +10,6 @@ function validationFlow(tar){
             validateProfileSettings();
             break;
         case "new-training":
-            console.log("hola?");
             validateNewTraining();
             break;
     }
@@ -90,8 +89,22 @@ function validateNewTraining(){
         typology: document.getElementById("typology").value,
         trainDescription: document.getElementById("training-description").value,
         dificulty: document.getElementById("dificulty").value,
+        images:[],
         likes: [],
         comments: []
     }
-    console.log("we");
+    var imgs=document.getElementById("list").children;
+    for(i=0;i<imgs.length;i++){
+        var myimg=imgs[i].getElementsByTagName("img")[0];
+        var photo={
+            src: myimg.src,
+            title: myimg.title,
+        }
+        training.images.push(photo);
+    }
+    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
+    allUsers[localStorage.getItem("currentUser")].trainingPosts.push(training);
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    document.querySelector("#list").innerHTML="";
+    document.querySelector("#training-description").innerHTML="";
 }
