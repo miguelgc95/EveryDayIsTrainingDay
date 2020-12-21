@@ -3,10 +3,12 @@ html, body{
     margin:0;
     display: flex;
     flex-direction: column;
+    font-family: "Pitch Sans", "Courier New", Courier, monospace;
 }
 
 body{
     margin: auto;
+    background-color: #f5f4f0;
 }
 
 #general-wrapper{
@@ -28,6 +30,13 @@ nav{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    color: rgb(0,129,73);
+    background-color: #030303;
+}
+
+nav button{
+    color: rgb(0,129,73);
+    background-color: 030303;
 }
 
 main{
@@ -36,7 +45,7 @@ main{
     height: 80vh;
 }
 
-#self-profile{
+section{
     display: flex;
     flex-direction: column;
     justify-content: space-around;

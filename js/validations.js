@@ -1,16 +1,12 @@
 function validationFlow(tar){
-    console.log(tar.parentNode.parentNode.id);
     switch (tar.parentNode.parentNode.id){
         case "create-account":
-            console.log("e1");
             validateCreateAccount();
             break;
         case "log-in":
-            console.log("e2");
             validateLogIn();
             break;
         case "profile-settings":
-            console.log("e3");
             validateProfileSettings();
             break;
     }
@@ -55,7 +51,7 @@ function createUser(){
     localStorage.setItem('allUsers',JSON.stringify([]))
     allUsers.push(p1);
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
-    p1.setCurrent();
+    setCurrent(email);
 }
 
 function validateLogIn(){
@@ -69,17 +65,18 @@ function validateLogIn(){
             if (element.password!=document.querySelector("#password-log-in").value){
                 alert("invalid password")
             }
-        }
+        } 
     });
     if (validUser===undefined){
         alert("invalid email")
     }
     else{
-        console.log("entro", allUsers[index]);
-        allUsers[index].setCurrent();
+        setCurrent(validUser);
     }
 }
 
 function validateProfileSettings(){
-
+    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
+    allUsers[localStorage.getItem("currentUser")].description=document.getElementById("descript").value;
+    localStorage.setItem("allUsers", JSON.stringify(allUsers))
 }

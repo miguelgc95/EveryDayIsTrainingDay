@@ -1,6 +1,18 @@
 window.onload= trigger();
 
-const circleType = new CircleType(document.getElementById('circle'));
+getLocalStorage()
+function getLocalStorage(){
+    if (localStorage.getItem('allUsers') === null) {
+        console.log("wop");
+        localStorage.setItem('allUsers',JSON.stringify([]))
+    }
+    // else{
+    //     allUsers = JSON.parse(localStorage.getItem('allUsers'))
+    // }
+    if(localStorage.getItem("currentUser"===null)){
+        localStorage.setItem("currentUser",JSON.stringify({}))
+    }
+}
 
 function trigger(){
     var parent = document.querySelectorAll(".flow-btn");
@@ -12,7 +24,6 @@ function trigger(){
 function flow(e){
     e.preventDefault();
     if(e.target.classList.contains("validate")){
-        console.log("llamo a validation");
         validationFlow(e.target);
     }
     var parent = document.querySelectorAll("section");
