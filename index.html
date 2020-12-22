@@ -8,10 +8,12 @@
 
     <title>EveryDayIsTrainingDay</title>
 
-    <script src="js/main.js" defer></script>
+
     <script src="js/objects.js" defer></script>
-    <script src="js/validations.js" defer></script>
+    <script src="js/main.js" defer></script>
     <script src="js/loadInfo.js" defer></script>
+    <script src="js/validations.js" defer></script>
+    <script src="js/flow.js" defer></script>
     <script src="https://kit.fontawesome.com/fe79458665.js" crossorigin="anonymous"></script>
 
 </head>
@@ -49,7 +51,6 @@
                     <label for="repeat-password">Repeat password:</label>
                     <input type="password" id="repeat-password"><br>
                     <button class="flow-btn validate" name="profile-settings">Create account</button>
-                    don't forget the prevent default!
                 </form>
             </section>
             <section id="profile-settings" class="hide-me">
@@ -59,7 +60,7 @@
                     <output id="list-profile-img"></output>
                     <label for="user-name2">User name:</label>
                     <input type="text" id="user-name2" autofocus><br>
-                    <label for="password2">Password:</label>
+                    <label for="password2">Change password:</label>
                     <input type="password" id="password2"><br>
                     <label for="descript">Description: </label>
                     <textarea name="" id="descript" cols="30" rows="10"></textarea>
@@ -80,46 +81,32 @@
                 <div id="profile-first-row">
                     <div id="img-wrapper"></div>
                     <div>
-                        <span>trainings</span>
-                        <span>pictures</span>
-                        <span>followers</span>
-                        <span>following</span>
+                        <div class="together-info">
+                            <span id="my-trainings"></span>
+                            <p>Trainings</p>
+                        </div>
+                        <div class="together-info">
+                            <span id="my-pictures"></span>
+                            <p>Pictures</p>
+                        </div>
+                        <div class="together-info">
+                            <span id="my-followers"></span>
+                            <p>Followers</p>
+                        </div>
+                        <div class="together-info">
+                            <span id="my-following"></span>
+                            <p>Following</p>
+                        </div>
                     </div>
                 </div>
                 <div id="description">hola miradme soy pakito hago deporte</div>
                 <button class="flow-btn" name="profile-settings">Edit profile</button>
                 <div id="to-stick">
-                    <button id="self-training">self-training</button>
-                    <button id="self-photos">self-photos</button>
+                    <button id="self-training">Training Galery</button>
+                    <button id="self-photos">Pics Galery</button>
                 </div>
-                <div id="galery">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                    <img src="assets/media-cara.jpg" alt="">
-                </div>
+                <div id="galery-trainings">galery-trainings</div>
+                <div id="galery-pics" class="hide-me">galery-pics</div>
             </section>
             <section id="new-post" class="hide-me">
                 new post
@@ -161,7 +148,7 @@
             <button class="flow-btn" name="trainings"><i class="fas fa-dumbbell aux"></i></button>
             <button class="flow-btn" name="pictures"><i class="fas fa-images aux"></i></button>
             <button class="flow-btn" name="search"><i class="fas fa-search aux"></i></button>
-            <button class="flow-btn" name="self-profile">self-profile</button>
+            <button class="flow-btn validate" name="self-profile">self-profile</button>
         </nav>
     </div>
 </body>

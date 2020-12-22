@@ -55,14 +55,30 @@ section{
 
 #profile-first-row{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-around;
     align-items: center;
+}
+
+.together-info{
+    display: flex;
+
+}
+
+.together-info span{
+    align-self: center;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 img{
     max-width: 50px;
     max-height: 50px;
+}
+
+.profile-img{
+    max-width: 200px;
+    max-height: 200px;
 }
 
 #to-stick{

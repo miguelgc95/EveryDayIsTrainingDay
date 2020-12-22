@@ -41,20 +41,7 @@ function validateCreateAccount(){
     }
     else{
         alert("no te creo");
-        console.log(flag1,flag2,flag3);
     }
-}
-
-function createUser(){
-    var name=document.getElementById("user-name").value;
-    var password=document.getElementById("password").value;
-    var email=document.getElementById("email-create").value;
-    var p1=new User(name, email, password);
-    var allUsers=JSON.parse(localStorage.getItem("allUsers"))
-    localStorage.setItem('allUsers',JSON.stringify([]))
-    allUsers.push(p1);
-    localStorage.setItem("allUsers", JSON.stringify(allUsers));
-    setCurrent(email);
 }
 
 function validateLogIn(){
@@ -79,16 +66,31 @@ function validateLogIn(){
 }
 
 function validateProfileSettings(){
+    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     var imgs=document.getElementById("list-profile-img").children;
-    console.log(imgs);
-    var myimg=imgs[0].getElementsByTagName("img")[0];
-    console.log(myimg);
+    if(imgs[0]===undefined){
+        alert("add a profile picture")
+    }
+    else{
+        var myimg=imgs[0].getElementsByTagName("img")[0];
         var photo={
             src: myimg.src,
             title: myimg.title,
         }
-    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
-    allUsers[localStorage.getItem("currentUser")].profilePhoto=photo;
+        allUsers[localStorage.getItem("currentUser")].profilePhoto=photo;
+    }
+    if(document.getElementById("user-name2").value===""){
+        alert("add a user name")
+    }
+    else{
+        allUsers[localStorage.getItem("currentUser")].userName=document.getElementById("user-name2").value;
+    }
+    if(document.getElementById("descript").value===""){
+        alert("add a description")
+    }
+    else{
+        allUsers[localStorage.getItem("currentUser")].description=document.getElementById("descript").value;
+    }
     localStorage.setItem("allUsers", JSON.stringify(allUsers))
 }
 
@@ -115,4 +117,8 @@ function validateNewTraining(){
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
     document.querySelector("#list").innerHTML="";
     document.querySelector("#training-description").innerHTML="";
+}
+
+function validateSelfProfile(){
+    document.querySelector("#img-wrapper").innerHTML="";
 }
