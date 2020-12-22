@@ -95,13 +95,16 @@ function validateProfileSettings(){
 }
 
 function validateNewTraining(){
+    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
+    var idTraining=allUsers[localStorage.getItem("currentUser")].trainingPosts.length;
     var training={
         typology: document.getElementById("typology").value,
         trainDescription: document.getElementById("training-description").value,
         dificulty: document.getElementById("dificulty").value,
         images:[],
         likes: [],
-        comments: []
+        comments: [],
+        idTraining: idTraining,
     }
     var imgs=document.getElementById("list").children;
     for(i=0;i<imgs.length;i++){
@@ -112,7 +115,6 @@ function validateNewTraining(){
         }
         training.images.push(photo);
     }
-    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     allUsers[localStorage.getItem("currentUser")].trainingPosts.push(training);
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
     document.querySelector("#list").innerHTML="";

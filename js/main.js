@@ -31,21 +31,18 @@ document.getElementById('files').addEventListener('change', handleFileSelect, fa
 
 function handleFileSelectProfile(evt) {
     var files = evt.target.files; // FileList object
-    
     var reader = new FileReader();
     var f=files[0]
     // Closure to capture the file information.
     reader.onload = (function(theFile) {
         return function(e) {
             // Render thumbnail.
-
             var span = document.createElement('span');
             span.innerHTML = ['<img class="thumb" src="', e.target.result,
                             '" title="', escape(theFile.name), '"/>'].join('');
             document.getElementById('list-profile-img').insertBefore(span, null);
         };
         })(f);
-
     // Read in the image file as a data URL.
     reader.readAsDataURL(f);
 }
@@ -64,10 +61,17 @@ function createUser(){
     setCurrent(email);
 }
 
-function addTrainingToProfilePage(training){
-    var div = document.createElement('div');
-    div.innerHTML = ['<div><img src="', training.images[0].src,'" title="', training.images[0].title,
-    '"</div><div>', training.trainDescription,
-    '</div><div><span>',training.likes.length,' likes</span><div>comments:', training.comments.length,'</div></div>'].join('');
-    document.getElementById("galery-trainings").insertAdjacentElement('beforeend',div);
+function likeApost(e){
+    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
+    var currentUser=allUsers[localStorage.getItem("currentUser")];
+    var indexOfLikedUser=allUsers.findIndex(element => {
+        return element.email===e.target.name;
+    });
+    allUsers[indexOfLikedUser].trainingPosts[e.target.title].likes.push(currentUser.userName);
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    loadTrainingsInfo();
+}
+
+function commentAPost(e){
+    console.log(e.target.name);
 }
