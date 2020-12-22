@@ -5,11 +5,11 @@ function getLocalStorage(){
     if (localStorage.getItem('allUsers') === null) {
         localStorage.setItem('allUsers',JSON.stringify([]))
     }
-    // else{
-    //     allUsers = JSON.parse(localStorage.getItem('allUsers'))
-    // }
     if(localStorage.getItem("currentUser"===null)){
         localStorage.setItem("currentUser",JSON.stringify({}))
+    }
+    if(localStorage.getItem('notifications') === null){
+        localStorage.setItem('notifications',JSON.stringify([]))
     }
 }
 

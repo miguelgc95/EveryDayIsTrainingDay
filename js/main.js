@@ -70,8 +70,44 @@ function likeApost(e){
     allUsers[indexOfLikedUser].trainingPosts[e.target.title].likes.push(currentUser.userName);
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
     loadTrainingsInfo();
+    setNewNotification("like",e.target.title, currentUser.userName,indexOfLikedUser)
 }
 
 function commentAPost(e){
     console.log(e.target.name);
 }
+
+function setNewNotification(notificationType, whereInteracted, whoInteracted, indexOfLikedUser){
+    var newNot=new Notification(notificationType, whereInteracted, whoInteracted);
+    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
+    allUsers[indexOfLikedUser].notifications.push(newNot);
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
+}
+
+//every 10 secs notifications will be checked for a new one
+setInterval(function () {
+    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
+    var currentUser=allUsers[localStorage.getItem("currentUser")];
+    if(currentUser.notifications.lenth!=0){
+        currentUser.notifications.forEach(element => {
+        if(element.status){
+            notifyUser();
+        }
+        });
+    }
+    }, 10000);
+
+    function notifyUser(){
+        if(!document.querySelector("#notifications-btn").classList.contains("red-me")){
+            document.querySelector("#notifications-btn").classList.add("red-me");
+        }
+    }
+
+    function changeNotificationStatus(e){
+        console.log("soy yo?");
+        var allUsers=JSON.parse(localStorage.getItem("allUsers"));
+        var currentUser=allUsers[localStorage.getItem("currentUser")];
+        currentUser.notifications[e.title]
+        localStorage.setItem("allUsers", JSON.stringify(allUsers));
+        loadNotificationsInfo();
+    }

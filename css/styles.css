@@ -120,3 +120,7 @@ section form{
 .hide-me{
     display: none !important;
 }
+
+.red-me{
+    color: red;
+}

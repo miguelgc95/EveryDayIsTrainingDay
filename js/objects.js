@@ -9,9 +9,16 @@ class User{
         this.followers=[];
         this.following=[];
         this.description="";
+        this.notifications=[];
     }
-    get interaction(){
-        console.log("tus muerto");
+}
+
+class Notification{
+    constructor(notificationType, whereInteracted,whoInteracted){
+        this.notificationType=notificationType;
+        this.whereInteracted=whereInteracted;
+        this.whoInteracted=whoInteracted;
+        this.status=true;
     }
 }
 
