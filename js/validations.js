@@ -8,6 +8,7 @@ function validationFlow(tar){
             break;
         case "profile-settings":
             validateProfileSettings();
+            putNavBarImg()
             break;
         case "new-training":
             validateNewTraining();

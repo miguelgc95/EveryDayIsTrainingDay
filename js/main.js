@@ -70,7 +70,8 @@ function likeApost(e){
     allUsers[indexOfLikedUser].trainingPosts[e.target.title].likes.push(currentUser.userName);
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
     loadTrainingsInfo();
-    setNewNotification("like",e.target.title, currentUser.userName,indexOfLikedUser)
+    var mesage="";
+    setNewNotification("like",e.target.title, currentUser.userName, mesage, indexOfLikedUser);
 }
 
 function commentAPost(e){

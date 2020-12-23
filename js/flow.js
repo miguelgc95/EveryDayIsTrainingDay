@@ -21,6 +21,7 @@ function trigger(){
 }
 
 function flow(e){
+    //This function recives the button which was clicked and depend of that will do one thing or another
     e.preventDefault();
     document.getElementById("sections-wrapper").removeEventListener("scroll",stickProfileOption);
     document.getElementById("self-training").removeEventListener("click",toggleProfileButtons);
@@ -28,6 +29,9 @@ function flow(e){
     //next if-else is to select depens on if the button was clicked or its content
     if(e.target.classList.contains("aux")){
         var refer=e.target.parentNode;
+    }
+    else if(e.target.classList.contains("aux2")){
+        var refer=e.target.parentNode.parentNode;
     }
     else{
         var refer=e.target;

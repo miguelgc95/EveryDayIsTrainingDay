@@ -53,6 +53,22 @@ section{
     align-items: center;
 }
 
+#welcome{
+    width: 100%;
+    height: 100%;
+    justify-self: center;
+    align-self: center;
+}
+
+#welcome div{
+    display: flex;
+    flex-direction: column;
+}
+
+#hard{
+    margin-bottom: 30px;
+}
+
 #profile-first-row{
     display: flex;
     width: 100%;
@@ -79,6 +95,26 @@ img{
 .profile-img{
     max-width: 200px;
     max-height: 200px;
+}
+
+/* #nav-img{
+    padding-left: 0;
+    max-width: 40px;
+    max-height: 40px;
+} */
+
+#img-btn{
+    border: none;
+    padding: 0;
+    background-color:  #030303;
+}
+
+.nav-img{
+
+    max-width: 35px;
+    max-height: 35px;
+    border-radius: 100%;
+    border: 2px solid  rgb(0,129,73);
 }
 
 #to-stick{

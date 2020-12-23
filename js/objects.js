@@ -49,6 +49,20 @@ function setCurrent (email){
         return e.email===email;
     });
     localStorage.setItem("currentUser",ind);
+    putNavBarImg();
+    document.getElementById("auxx").classList.remove("hide-me");
+    document.getElementById("down-nav").classList.remove("hide-me");
+}
+
+function putNavBarImg(){
+    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
+    var currentUser=allUsers[localStorage.getItem("currentUser")];
+    document.getElementById("img-btn").innerHTML="";
+    var currentImg=currentUser.profilePhoto;
+    var span = document.createElement('span');
+    span.innerHTML = ['<img class="nav-img aux2" src="', currentImg.src,
+                                    '" title="', currentImg.title, '"/>'].join('');
+    document.getElementById("img-btn").insertBefore(span, null);
 }
 
 function Photos(){
