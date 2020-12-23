@@ -84,7 +84,7 @@ function setNewNotification(notificationType, whereInteracted, whoInteracted, in
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
 }
 
-//every 10 secs notifications will be checked for a new one
+//every 1 secs notifications will be checked for a new one
 setInterval(function () {
     var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     var currentUser=allUsers[localStorage.getItem("currentUser")];
@@ -93,9 +93,14 @@ setInterval(function () {
         if(element.status){
             notifyUser();
         }
+        else{
+            if(document.querySelector("#notifications-btn").classList.contains("red-me")){
+                document.querySelector("#notifications-btn").classList.remove("red-me");
+            }
+        }
         });
     }
-    }, 10000);
+    }, 1000);
 
     function notifyUser(){
         if(!document.querySelector("#notifications-btn").classList.contains("red-me")){
@@ -104,10 +109,10 @@ setInterval(function () {
     }
 
     function changeNotificationStatus(e){
-        console.log("soy yo?");
         var allUsers=JSON.parse(localStorage.getItem("allUsers"));
         var currentUser=allUsers[localStorage.getItem("currentUser")];
-        currentUser.notifications[e.title]
+        currentUser.notifications[e.target.title].status=false;
         localStorage.setItem("allUsers", JSON.stringify(allUsers));
+        document.getElementById("notifications").innerHTML="";
         loadNotificationsInfo();
     }
