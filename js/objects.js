@@ -14,11 +14,31 @@ class User{
 }
 
 class Notification{
-    constructor(notificationType, whereInteracted,whoInteracted){
+    constructor(notificationType, whereInteracted,whoInteracted,mesage){
         this.notificationType=notificationType;
         this.whereInteracted=whereInteracted;
         this.whoInteracted=whoInteracted;
+        this.mesage=mesage;
         this.status=true;
+    }
+}
+
+class TrainingPosts{
+    constructor(difficulty, idTraining,trainDescription,typology){
+        this.comments=[];
+        this.difficulty=difficulty;
+        this.idTraining=idTraining;
+        this.images=[];
+        this.likes=[];
+        this.trainDescription=trainDescription;
+        this.typology=typology;
+    }
+}
+
+class commentObject{
+    constructor(whoCommented, commentText){
+        this.whoCommented=whoCommented;
+        this.commentText=commentText;
     }
 }
 

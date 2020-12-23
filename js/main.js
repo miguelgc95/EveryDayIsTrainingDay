@@ -74,11 +74,50 @@ function likeApost(e){
 }
 
 function commentAPost(e){
-    console.log(e.target.name);
+    var myDiv=document.createElement("div");
+    var textAreaComment=document.createElement("textarea");
+    var confirmComment=document.createElement("button");
+    var discardComment=document.createElement("button");
+    confirmComment.setAttribute("title", e.target.title);
+    confirmComment.setAttribute("name", e.target.name);
+    confirmComment.innerHTML="send comment";
+    discardComment.innerHTML="discard comment";
+    confirmComment.addEventListener("click",saveComment);
+    discardComment.addEventListener("click",cancelComment);
+    myDiv.insertAdjacentElement("beforeEnd",textAreaComment);
+    myDiv.insertAdjacentElement("beforeEnd",confirmComment);
+    myDiv.insertAdjacentElement("beforeEnd",discardComment);
+    e.target.parentNode.parentNode.parentNode.insertAdjacentElement("beforeEnd",myDiv);
 }
 
-function setNewNotification(notificationType, whereInteracted, whoInteracted, indexOfLikedUser){
-    var newNot=new Notification(notificationType, whereInteracted, whoInteracted);
+function saveComment(e){
+    // añadir los comentarios al loadInfo
+    var allUsers=JSON.parse(localStorage.getItem("allUsers"));
+    var currentUser=allUsers[localStorage.getItem("currentUser")];
+    var indexOfCommentedUser=allUsers.findIndex(element => {
+        return element.email===e.target.name;
+    });
+    var mesage=e.target.parentNode.firstChild.value;
+    var commentInfo={
+        whoCommented:localStorage.getItem("currentUser"),
+        commentText:mesage,
+    }
+    allUsers[indexOfCommentedUser].trainingPosts[e.target.title].comments.push(commentInfo);
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    e.target.removeEventListener("click",saveComment);
+    e.target.parentNode.lastChild.removeEventListener("click",cancelComment);
+    loadTrainingsInfo();
+    setNewNotification("comment", e.target.title, currentUser.userName, mesage, indexOfCommentedUser)
+}
+
+function cancelComment(e){
+    e.target.previousSibling.removeEventListener("click",saveComment);
+    e.target.removeEventListener("click",cancelComment);
+    e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+}
+
+function setNewNotification(notificationType, whereInteracted, whoInteracted, mesage,indexOfLikedUser){
+    var newNot=new Notification(notificationType, whereInteracted, whoInteracted,mesage);
     var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     allUsers[indexOfLikedUser].notifications.push(newNot);
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
