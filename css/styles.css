@@ -88,8 +88,13 @@ section{
 }
 
 img{
-    max-width: 50px;
-    max-height: 50px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.yep{
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .profile-img{

@@ -13,7 +13,7 @@ function loadATrainingInMainFeed(training, meta){
     var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     var myDiv = document.createElement('div');
     //in button's atributes will be stored who interacted(name) and the index of the post where interacted(title)
-    myDiv.innerHTML = ['<div><img src="', training.images[0].src,'" title="', training.images[0].title,
+    myDiv.innerHTML = ['<div><img class="yep" src="', training.images[0].src,'" title="', training.images[0].title,
                         '"</div><div>', training.trainDescription,'</div><div><span>',training.likes.length,
                         ' likes<button name="',meta,'" title="',training.idTraining,'" class="like-btn">like this</button></span><div>comments:', training.comments.length,
                         '<button name="',meta,'" title="',training.idTraining,'" class="comment-btn">comment this</button></div></div>'].join('');
