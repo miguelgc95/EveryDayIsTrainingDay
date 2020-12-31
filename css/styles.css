@@ -165,3 +165,12 @@ section form{
 .red-me{
     color: red;
 }
+
+.errorMessage {
+    font-size: 13px;
+    color: #e32b2b;
+    padding-left: 20px;
+    margin-top: 5px;
+    font-weight: 700;
+    display:none;
+}

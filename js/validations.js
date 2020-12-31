@@ -1,17 +1,17 @@
 function validationFlow(tar){
     switch (tar.parentNode.parentNode.id){
         case "create-account":
-            validateCreateAccount();
+            return validateCreateAccount();
             break;
         case "log-in":
-            validateLogIn();
+            return generalLoginValidation();
             break;
         case "profile-settings":
-            validateProfileSettings();
+            return validateProfileSettings();
             putNavBarImg()
             break;
         case "new-training":
-            validateNewTraining();
+            return validateNewTraining();
             break;
     }
 }
@@ -20,52 +20,97 @@ function validateCreateAccount(){
     var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     var flag1=true,flag2=true,flag3=true;
     if(document.querySelector("#user-name").value===""){
-        alert("invalid user name");
+        document.getElementById("username-span").innerHTML ="Invalid user name";
+        document.getElementById("username-span").style.display = "block";
         flag3=false;
     }
     allUsers.forEach(element => {
         if(element.userName===document.querySelector("#user-name").value){
-            alert("user name alredy exists");
+            document.getElementById("email-create-span").innerHTML ="user name alredy exists";
+            document.getElementById("email-create-span").style.display = "block";
             flag1=false;
         }
         if(element.email===document.querySelector("#email-create").value){
-            alert("this email alredy has an account")
+            document.getElementById("email-create-span").innerHTML ="this email alredy has an account";
+            document.getElementById("email-create-span").style.display = "block";
             flag2=false;
         }
     });
     if(document.querySelector("#password").value!=document.querySelector("#repeat-password").value){
-        alert("passwords must be equal")
+        document.getElementById("password-create-span").innerHTML ="passwords must be equal";
+        document.getElementById("password-create-span").style.display = "block";
         flag3=false;
     }
     if(flag1*flag2*flag3){
         createUser();
+        return true
     }
     else{
-        alert("no te creo");
+        return false
     }
 }
 
-function validateLogIn(){
+//Log-in Validation
+function validatePasswordLogIn(element){
+    //return true when password is correct, flase when invalid password
+    if (element.password===document.querySelector("#password-log-in").value){
+        return true
+    }
+    else{
+        document.getElementById("password-login-span").innerHTML ="Invalid password";
+        document.getElementById("password-login-span").style.display = "block";
+        return false;
+    }
+}
+
+function validateEmailLogIn(){
     var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     var validUser;
     var index;
+    var flag=false;
     allUsers.forEach((element,i) => {
         if(element.email===document.querySelector("#email").value){
             index=i;
             validUser=element.email;
-            if (element.password!=document.querySelector("#password-log-in").value){
-                alert("invalid password")
+            if (validatePasswordLogIn(element)){
+                flag=true;
             }
         }
     });
     if (validUser===undefined){
-        alert("invalid email")
+        document.getElementById("login-span").innerHTML ="Invalid email";
+        document.getElementById("login-span").style.display = "block";
+        return false;
+    }
+    else if(validUser!=undefined && !flag){
+        document.getElementById("login-span").style.display = "none";
+        document.getElementById("password-login-span").innerHTML ="Invalid password";
+        document.getElementById("password-login-span").style.display = "block";
+        return false;
     }
     else{
-        setCurrent(validUser);
+        document.getElementById("login-span").style.display = "none";
+        document.getElementById("password-login-span").style.display = "none";
+        return validUser;
     }
 }
 
+function generalLoginValidation(){
+    var bol=validateEmailLogIn();
+    if (bol!=false && bol!=undefined){
+        console.log(bol);
+        setCurrent(bol);
+        document.querySelector("#email").removeEventListener("blur", validateEmailLogIn);
+        document.querySelector("#password-log-in").removeEventListener("blur", validateEmailLogIn);
+        return true
+    }
+    else{
+        return false
+    }
+}
+
+
+//validate profile Settings
 function validateProfileSettings(){
     var allUsers=JSON.parse(localStorage.getItem("allUsers"));
     var imgs=document.getElementById("list-profile-img").children;

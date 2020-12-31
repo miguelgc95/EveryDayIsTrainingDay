@@ -37,22 +37,27 @@
             <section id="log-in" class="hide-me">
                 <form action="">
                     <label for="email">Email:</label>
-                    <input type="text" id="email" autofocus><br>
+                    <input type="text" id="email" autofocus required><br>
+                    <span id="login-span" class="errorMessage"></span>
                     <label for="password-log-in">Password:</label>
-                    <input type="password" id="password-log-in" ><br>
-                    <button class="flow-btn validate" name="trainings">Log In</button>
+                    <input type="password" id="password-log-in" required><br>
+                    <span id="password-login-span" class="errorMessage"></span>
+                    <button id="btn-log-in" class="flow-btn validate" name="trainings">Log In</button>
                 </form>
             </section>
             <section id="create-account" class="hide-me">
                 <form action="">
                     <label for="user-name">User name:</label>
-                    <input type="text" id="user-name" autofocus><br>
+                    <input type="text" id="user-name" autofocus required><br>
+                    <span id="username-span" class="errorMessage"></span>
                     <label for="email-create">Email:</label>
-                    <input type="text" id="email-create"><br>
+                    <input type="text" id="email-create" required><br>
+                    <span id="email-create-span" class="errorMessage"></span>
                     <label for="password">Password:</label>
-                    <input type="password" id="password"><br>
+                    <input type="password" id="password" required><br>
                     <label for="repeat-password">Repeat password:</label>
-                    <input type="password" id="repeat-password"><br>
+                    <input type="password" id="repeat-password" required><br>
+                    <span id="password-create-span" class="errorMessage"></span>
                     <button class="flow-btn validate" name="profile-settings">Create account</button>
                 </form>
             </section>

@@ -38,7 +38,9 @@ function flow(e){
     }
     //buttons to validate
     if(refer.classList.contains("validate")){
-        validationFlow(refer);
+        if (!validationFlow(refer)){
+            return false;
+        }
     }
     //to display the correct page
     var parent = document.querySelectorAll("section");
@@ -75,6 +77,10 @@ function flow(e){
             break;
         case "notifications":
             loadNotificationsInfo();
+            break;
+        case "log-in":
+            document.querySelector("#email").addEventListener("blur", validateEmailLogIn);
+            document.querySelector("#password-log-in").addEventListener("blur", validateEmailLogIn);
             break;
     }
 }
